@@ -1,0 +1,14 @@
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+* {
+  margin: 0;
+}
+h2 {
+  font-size: 60px;
+}
+
+p {
+  font-size: 45px;
+}
