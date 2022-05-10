@@ -1,17 +1,18 @@
 window.addEventListener("load", () => {
-  const blocks = document.querySelectorAll("div[data-title]");
+  const blocks = document.querySelectorAll(".anchor");
+
+  const needHesh = window.location.toString().split("#")[1];
+  if (needHesh !== undefined) {
+    const needElement = document.getElementById(needHesh);
+    window.scrollTo(0, needElement.offsetTop);
+  }
 
   const blocksObserver = new IntersectionObserver(
     (entries) => {
-      console.log(entries);
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const location = window.location.toString().split("#")[0];
-          history.replaceState(
-            null,
-            null,
-            location + "#" + entry.target.dataset.title
-          );
+          history.replaceState(null, null, location + "#" + entry.target.id);
         }
       });
     },
