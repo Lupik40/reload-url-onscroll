@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
   const blocksObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
           const location = window.location.toString().split("#")[0];
           history.replaceState(null, null, location + "#" + entry.target.id);
         }
